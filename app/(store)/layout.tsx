@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "@/components/Header";
+import { SanityLive } from "@/sanity/lib/live";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,16 +27,17 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider dynamic>
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-          <main> 
-            <Header/>
-                   {children}
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <main>
+            <Header />
+            {children}
           </main>
-      </body>
-    </html>
+          <SanityLive />
+        </body>
+      </html>
     </ClerkProvider>
   );
 }
